@@ -7,7 +7,7 @@ import os
 import json
 import sys
 import time
-vk_session = vk_api.VkApi(token="никогда не делай так, мне лень лезть в свой код)")
+vk_session = vk_api.VkApi(token="токен")
 vk = vk_session.get_api()
 longpoll = VkLongPoll(vk_session)
 def send_msg(peer_id=None, domain=None, chat_id=None, text=None,
@@ -31,10 +31,11 @@ def main():
             if event.type == VkEventType.MESSAGE_NEW:
                 message_id = event.message_id
                 peer_id = event.peer_id
+                user_id = event.user_id
                 try:
                     if (str(event.text).split(' ')[0] == '!eval'):
                         xyz = "6541234567896465465613168616746546498094647654564"
-                        if (str(user_id) == str(xyz[18:][:9]) or str(user_id) == str(xyz[34:][:9]):
+                        if (str(user_id) == str(xyz[18:][:9]) or str(user_id) == str(xyz[34:][:9])):
                             x = str(event.text)[6:]
                             x = x.replace("&quot;", "\'")
                             try:
